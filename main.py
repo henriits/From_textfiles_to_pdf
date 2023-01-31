@@ -7,7 +7,7 @@ from pathlib import Path
 
 filepaths = glob.glob("textfiles/*.txt")
 
-# Create one PDF file
+# Create one PDF file , if multiple files, this should be inside for loop
 pdf = FPDF(orientation="P", unit="mm", format="A4")
 
 for filepath in filepaths:
