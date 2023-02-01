@@ -20,7 +20,14 @@ for filepath in filepaths:
     filename = Path(filepath).stem.capitalize()
 
     pdf.set_font(family="Times", size=16, style="B")
-    pdf.cell(w=50, h=8, txt=filename)
+    pdf.cell(w=50, h=8, txt=filename, ln=1)
+
+    # adding text from txt and atting it to pdf
+    with open(filepath, "r") as file:
+        content = file.read()
+
+    pdf.set_font(family="Times", size=12)
+    pdf.multi_cell(w=0, h=6, txt=content)
 
     # Line below is used to create separate files
     # pdf.output(f"PDFs/{filename.lower()}.pdf")
